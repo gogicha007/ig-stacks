@@ -1,18 +1,20 @@
-import { Inter } from 'next/font/google'
-import Image from 'next/image'
-import './globals.css'
-import Navbar from '@/components/navbar/Navbar'
-import Header from '@/components/header/Header'
-import User from '@/components/user/User'
+import { Inter } from "next/font/google";
+import Image from "next/image";
+import "./globals.css";
+import Navbar from "@/components/navbar/Navbar";
+import Header from "@/components/header/Header";
+import User from "@/components/user/User";
+// import { useState } from "react";
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: 'IG Stacks',
-  description: 'Inventory management applicationp',
-}
+  title: "IG Stacks",
+  description: "Inventory management applicationp",
+};
 
 export default function RootLayout({ children }) {
+  // const [title, setTitle] = useState("მთავარი");
   return (
     <html lang="en">
       <body className={inter.className}>
@@ -34,10 +36,10 @@ export default function RootLayout({ children }) {
               <User />
               <Navbar />
             </div>
-            {children}
+            <main>{children}</main>
           </div>
         </div>
       </body>
     </html>
-  )
+  );
 }
