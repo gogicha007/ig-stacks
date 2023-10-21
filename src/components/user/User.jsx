@@ -20,8 +20,8 @@ const User = () => {
             alt="profile pic"
           />
         </div>
-        <p>username</p>
-        <p>email</p>
+        <p>ემზარ ჯუღელი</p>
+        <p>emzo@jugeli.ge</p>
       </div>
       <div className={styles.controls}>
         <button
@@ -31,20 +31,8 @@ const User = () => {
         >
           <Image
             src={outhIcons.login}
-            width={20}
-            height={20}
-            alt="auth image"
-          />
-        </button>
-        <button
-          type="button"
-          onClick={() => console.log("user info")}
-          className={styles.userInfoBtn}
-        >
-          <Image
-            src="/images/profile_data.svg"
-            width={20}
-            height={20}
+            width={30}
+            height={30}
             alt="auth image"
           />
         </button>

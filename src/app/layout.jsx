@@ -1,10 +1,12 @@
 import { Inter } from "next/font/google";
 import Image from "next/image";
+import Logo from "public/images/logo.png";
 import "./globals.css";
+
+// components
 import Navbar from "@/components/navbar/Navbar";
 import Header from "@/components/header/Header";
 import User from "@/components/user/User";
-// import { useState } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,7 +16,6 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  // const [title, setTitle] = useState("მთავარი");
   return (
     <html lang="en">
       <body className={inter.className}>
@@ -22,7 +23,7 @@ export default function RootLayout({ children }) {
           <div className="header">
             <div className="logo">
               <Image
-                src="/images/logo.png"
+                src={Logo}
                 priority={false}
                 width={150}
                 height={150}

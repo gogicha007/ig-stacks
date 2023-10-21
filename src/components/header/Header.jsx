@@ -1,13 +1,16 @@
-import React from 'react'
-import styles from '@/components/Header/Header.module.css'
+"use client";
+import React from "react";
+import styles from "@/components/Header/Header.module.css";
+import { useSelectedLayoutSegment } from "next/navigation";
 
-const Header = ({ title }) => {
+const Header = () => {
+  const segment = useSelectedLayoutSegment()
+  console.log(segment)
   return (
     <div className={styles.container}>
-      {title && console.log(title)}
-      Header
+      {/* {props && (<div>title</div>)} */}
     </div>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
