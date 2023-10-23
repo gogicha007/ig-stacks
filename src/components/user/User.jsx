@@ -30,7 +30,7 @@ const User = () => {
           className={styles.authBtn}
         >
           <Image
-            src={outhIcons.login}
+            src={outhIcons.logout}
             width={30}
             height={30}
             alt="auth image"

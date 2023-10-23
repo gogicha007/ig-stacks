@@ -13,6 +13,9 @@ main {
   border-radius: 15px 0px 0px 0px;
   border: 1px solid #000;
   background: #faf8ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 a {
   text-decoration: none;

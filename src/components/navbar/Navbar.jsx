@@ -1,30 +1,40 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import styles from "@/components/navbar/Navbar.module.css";
-import Image from "next/image";
 import data from "@/dictionaries/sidebar.json";
 import { useSelectedLayoutSegment } from "next/navigation";
 
 const links = data;
 
-const Navbar = ({ onClick }) => {
+function classNames(...classes) {
+  return classes.filter(Boolean).join(" ");
+}
+
+const Navbar = () => {
+  const segment = useSelectedLayoutSegment();
   return (
-    <div className={styles.container}>
-      <div className={styles.links}>
-        {links.map((link) => (
+    <ul className={styles.container}>
+      {links.map((link) => (
+        <li key={link.id}>
           <Link
-            key={link.id}
             href={link.url}
-            className={styles.link}
-            onClick={onClick}
+            className={classNames(
+              (segment ? segment : "") ===
+                link.url.slice(link.url.lastIndexOf("/") + 1)
+                ? styles.active
+                : "",
+              styles.link
+            )}
+            // onClick={(e) => clickHandle(link.url)}
           >
             <Image src={link.icon} width={20} height={20} alt="icon" />
             {link.title}
           </Link>
-        ))}
-      </div>
-    </div>
+        </li>
+      ))}
+    </ul>
   );
 };
 
