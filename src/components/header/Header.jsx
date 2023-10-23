@@ -1,14 +1,21 @@
 "use client";
 import React from "react";
 import styles from "@/components/Header/Header.module.css";
+import data from "@/dictionaries/sidebar.json";
 import { useSelectedLayoutSegment } from "next/navigation";
 
 const Header = () => {
-  const segment = useSelectedLayoutSegment()
-  console.log(segment)
+  const segment = useSelectedLayoutSegment();
+  const title = data.find(
+    (e) => segment === (e.url.substring(1) === "" ? null : e.url.substring(1))
+  ).title;
   return (
     <div className={styles.container}>
-      {/* {props && (<div>title</div>)} */}
+      {title && (
+        <div className={styles.title}>
+          <h1>{title}</h1>
+        </div>
+      )}
     </div>
   );
 };
