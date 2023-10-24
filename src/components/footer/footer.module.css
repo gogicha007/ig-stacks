@@ -1,0 +1,5 @@
+.container {
+    margin: auto 0 0 10px;
+    display: flex;
+    justify-content: flex-start;
+}

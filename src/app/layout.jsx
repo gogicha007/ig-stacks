@@ -4,9 +4,10 @@ import Logo from "public/images/logo.png";
 import "./globals.css";
 
 // components
-import Navbar from "@/components/navbar/Navbar";
 import Header from "@/components/header/Header";
 import User from "@/components/user/User";
+import Navbar from "@/components/navbar/Navbar";
+import Footer from "@/components/footer/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -36,6 +37,7 @@ export default function RootLayout({ children }) {
             <div className="sidebar">
               <User />
               <Navbar />
+              <Footer />
             </div>
             <main>{children}</main>
           </div>
