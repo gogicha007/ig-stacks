@@ -4,6 +4,7 @@ import styles from "@/components/user/user.module.css";
 import Image from "next/image";
 
 const outhIcons = {
+  menu: "/images/menu.svg",
   login: "/images/login1.svg",
   logout: "/images/logout1.svg",
 };
@@ -34,6 +35,18 @@ const User = () => {
             width={30}
             height={30}
             alt="auth image"
+          />
+        </button>
+        <button
+          type="button"
+          onClick={() => console.log("menu")}
+          className={styles.authBtn}
+        >
+          <Image
+            src={outhIcons.menu}
+            width={30}
+            height={30}
+            alt="menu icon"
           />
         </button>
       </div>
