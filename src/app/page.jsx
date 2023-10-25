@@ -1,7 +1,10 @@
+"use client";
+import { useSession } from "next-auth/react";
 import styles from "./page.module.css";
 import Link from "next/link";
 
 export default function Home() {
+  const { data } = useSession();
   return (
     <div className={styles.container}>
       <Link href={"/invoices"}>
@@ -50,9 +53,7 @@ export default function Home() {
           </div>
           <div className={styles.line}></div>
           <div className={styles.item_data}>
-            {/* <h3>
-              მოლოდინში <span>4</span>
-            </h3> */}
+            <h3>{JSON.stringify(data)}</h3>
           </div>
         </div>
       </Link>
