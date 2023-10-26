@@ -8,7 +8,7 @@ const Header = () => {
   const segment = useSelectedLayoutSegment();
   const title = data.find(
     (e) => segment === (e.url.substring(1) === "" ? null : e.url.substring(1))
-  ).title;
+  )?.title;
   return (
     <div className={styles.container}>
       {title && (

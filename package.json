@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.0.18",
+    "@prisma/client": "^5.5.1",
     "next": "13.5.5",
     "next-auth": "^4.24.3",
     "package-lock.json": "^1.0.0",
@@ -18,9 +19,9 @@
   },
   "devDependencies": {
     "@types/node": "20.8.8",
-    "@types/react": "18.2.31",
+    "@types/react": "18.2.32",
     "eslint": "^8",
     "eslint-config-next": "13.5.5",
-    "prisma": "^5.4.2"
+    "prisma": "^5.5.1"
   }
 }
