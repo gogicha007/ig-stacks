@@ -4,16 +4,16 @@ import Logo from "public/images/logo.png";
 import "./globals.css";
 
 // components
-import Header from "@/components/header/Header";
-import User from "@/components/user/User";
-import Navbar from "@/components/navbar/Navbar";
-import Footer from "@/components/footer/Footer";
+import Header from "../components/header/Header";
+import User from "../components/user/User";
+import Navbar from "../components/navbar/Navbar";
+import Footer from "../components/footer/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "IG Stacks",
-  description: "Inventory management applicationp",
+  description: "Inventory management application",
 };
 
 export default function RootLayout({ children }) {

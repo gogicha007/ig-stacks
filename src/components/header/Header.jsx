@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
-import styles from "@/components/Header/Header.module.css";
-import data from "@/dictionaries/sidebar.json";
+import styles from "./Header.module.css";
+import data from "../../dictionaries/sidebar.json";
 import { useSelectedLayoutSegment } from "next/navigation";
 
 const Header = () => {
