@@ -1,7 +1,8 @@
 "use client";
-import React from "react";
-import styles from "./user.module.css";
+import React, { useState, useEffect } from "react";
+import { signOut, useSession } from "next-auth/react";
 import Image from "next/image";
+import styles from "./user.module.css";
 
 const outhIcons = {
   menu: "/images/menu.svg",
@@ -10,6 +11,29 @@ const outhIcons = {
 };
 
 const User = () => {
+  const [isLogged, setIsLogged] = useState(false);
+  const { data } = useSession();
+
+  useEffect(() => {
+    setIsLogged(data !== null)
+  }, [data]);
+
+  useEffect(()=>{
+    console.log("isLogged:" + isLogged)
+    console.log(data?.user?.name)
+  }, [isLogged])
+
+  const handleLogin = async () => {
+    if (isLogged) {
+      console.log("logged");
+      await signOut();
+      // setIsLogged(false)
+    }
+    else {
+      console.log("not logged")
+      // setIsLogged(true)
+    }
+  };
   return (
     <div className={styles.container}>
       <div className={styles.info}>
@@ -27,7 +51,7 @@ const User = () => {
       <div className={styles.controls}>
         <button
           type="button"
-          onClick={() => console.log("authorize")}
+          onClick={handleLogin}
           className={styles.authBtn}
         >
           <Image
@@ -42,12 +66,7 @@ const User = () => {
           onClick={() => console.log("menu")}
           className={styles.authBtn}
         >
-          <Image
-            src={outhIcons.menu}
-            width={30}
-            height={30}
-            alt="menu icon"
-          />
+          <Image src={outhIcons.menu} width={30} height={30} alt="menu icon" />
         </button>
       </div>
     </div>

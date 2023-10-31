@@ -5,6 +5,7 @@ import Link from "next/link";
 
 export default function Home() {
   const { data } = useSession();
+
   return (
     <div className={styles.container}>
       <Link href={"/invoices"}>
