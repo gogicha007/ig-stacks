@@ -4,7 +4,7 @@ import styles from "./footer.module.css";
 const Footer = () => {
   return (
     <div className={styles.container}>
-        <p>© 2023 &nbsp;&nbsp;<a href="http://github.com/gogicha007">IG Soft</a></p>
+        <p>© 2023 &nbsp;&nbsp;<a href="http://github.com/gogicha007">IG Codes</a></p>
     </div>
   )
 }
