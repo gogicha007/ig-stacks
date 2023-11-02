@@ -1,5 +1,6 @@
 "use client";
 import React, { useRef } from "react";
+import Link from "next/link";
 import styles from "./Login.module.css";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
@@ -17,30 +18,33 @@ const Login = (props) => {
       redirect: false,
     });
     if (!res?.error) {
-        console.log(props.callbackUrl)
-        router.push(props.callbackUrl ?? "/")
+      router.push(props.callbackUrl ?? "/");
     }
   };
 
   return (
     <form onSubmit={onSubmit} className={styles.container}>
-      <label for="userName">მომხმარებელი</label>
+      <label htmlFor="userName">მომხმარებელი</label>
       <input
         type="text"
         id="userName"
         name="userName"
         onChange={(e) => (userName.current = e.target.value)}
       />
-      <label for="userPass">პაროლი</label>
+      <label htmlFor="userPass">პაროლი</label>
       <input
-        type="text"
+        type="password"
         id="userPass"
         name="userPass"
+        autoComplete="new-password"
         onChange={(e) => (userPass.current = e.target.value)}
       />
-      <button type="submit">
-        ავტორიზაცია
-      </button>
+      <div className={styles.controls}>
+        <button type="submit">ავტორიზაცია</button>
+        <button type="button">
+          <Link href={"/"}>გაუქმება</Link>
+        </button>
+      </div>
     </form>
   );
 };

@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 import styles from "./user.module.css";
@@ -12,6 +12,7 @@ const authIcons = {
 };
 
 const User = () => {
+  const currentPath = usePathname();
   const [userName, setUserName] = useState("სახელი, გვარი");
   const [userEmail, setUserEmail] = useState("ელ. ფოსტა");
   const router = useRouter();
@@ -19,22 +20,20 @@ const User = () => {
 
   useEffect(() => {
     if (data) {
+      console.log(data)
       setUserName(data.user.name);
       setUserEmail(data.user.email);
     } else {
       setUserName("სახელი, გვარი");
       setUserEmail("ელ. ფოსტა");
     }
-    console.log(data?.user?.name);
   }, [status]);
 
   const handleLogin = async () => {
     if (status === "authenticated") {
-      console.log(status);
       await signOut();
     } else {
-      router.push("/api/auth/signin");
-      console.log(status);
+      router.push('/api/auth/signin');
     }
   };
 

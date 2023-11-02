@@ -47,6 +47,12 @@ export const authOptions: NextAuthOptions = {
       },
     }),
   ],
+  // callbacks: {
+  //   session({ session, user }) {
+  //     session.user.role = user.role
+  //     return session
+  //   }
+  // },
   pages: {
     signIn: "/auth/signin",
   },
