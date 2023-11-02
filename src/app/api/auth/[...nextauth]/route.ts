@@ -40,7 +40,7 @@ export const authOptions: NextAuthOptions = {
           }
           return null;
         } catch (error) {
-          console.log(error);
+          console.log('error'+error);
         } finally {
           await prisma.$disconnect();
         }
