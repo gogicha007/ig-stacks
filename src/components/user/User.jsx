@@ -20,7 +20,7 @@ const User = () => {
 
   useEffect(() => {
     if (data) {
-      console.log(data)
+      console.log(data.user.role)
       setUserName(data.user.name);
       setUserEmail(data.user.email);
     } else {

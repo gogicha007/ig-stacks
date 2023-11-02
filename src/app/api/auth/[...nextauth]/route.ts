@@ -40,19 +40,23 @@ export const authOptions: NextAuthOptions = {
           }
           return null;
         } catch (error) {
-          console.log('error'+error);
+          console.log("error" + error);
         } finally {
           await prisma.$disconnect();
         }
       },
     }),
   ],
-  // callbacks: {
-  //   session({ session, user }) {
-  //     session.user.role = user.role
-  //     return session
-  //   }
-  // },
+  callbacks: {
+    async jwt({ token, user }) {
+      if (user) token.role = user.role;
+      return token;
+    },
+    async session({ session, token }) {
+      if (session?.user) session.user.role = token.role;
+      return session;
+    },
+  },
   pages: {
     signIn: "/auth/signin",
   },
