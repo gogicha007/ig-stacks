@@ -17,10 +17,21 @@
   margin: 0;
 }
 
-.photo {
+.avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 28px;
   display: flex;
   justify-content: center;
-  align-content: center;
+  align-items: center;
+  align-self: center;
+  background-color: #403d39;
+}
+.avatar p {
+  margin: 0;
+  padding: 0;
+  color: black;
+  font-weight: 700;
 }
 .controls {
   display: flex;

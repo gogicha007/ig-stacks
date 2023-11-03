@@ -1,9 +1,9 @@
 .container {
   box-sizing: border-box;
-  width: 100%;
+  width: auto;
   padding: 40px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   gap: 30px;
   flex-flow: row wrap;
   row-gap: 30px;

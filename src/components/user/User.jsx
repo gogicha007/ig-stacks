@@ -1,9 +1,10 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { useRouter, usePathname } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 import styles from "./user.module.css";
+import { roles } from "@/helpers/constants";
 
 const authIcons = {
   menu: "/images/menu.svg",
@@ -12,41 +13,50 @@ const authIcons = {
 };
 
 const User = () => {
-  const currentPath = usePathname();
-  const [userName, setUserName] = useState("სახელი, გვარი");
+  const [userRole, setUserRole] = useState("unauth");
+  const [userName, setUserName] = useState("სახელი გვარი");
+  const [initials, setInitials] = useState("სგ");
   const [userEmail, setUserEmail] = useState("ელ. ფოსტა");
   const router = useRouter();
   const { data, status } = useSession();
 
   useEffect(() => {
     if (data) {
-      console.log(data.user.role)
       setUserName(data.user.name);
       setUserEmail(data.user.email);
+      setUserRole(data.user.role);
+      changeInitials(data.user.name);
+
     } else {
       setUserName("სახელი, გვარი");
       setUserEmail("ელ. ფოსტა");
+      setInitials("სგ");
+      setUserRole("unauth");
     }
+    console.log(userRole);
+    console.log(roles[0][userRole]);
   }, [status]);
+
+  const changeInitials = (name = userName) => {
+    const letters = name.split(" ").reduce((acc, val) => {
+      return (acc += val[0]);
+    }, "");
+    setInitials(letters);
+  };
 
   const handleLogin = async () => {
     if (status === "authenticated") {
       await signOut();
     } else {
-      router.push('/api/auth/signin');
+      router.push("/api/auth/signin");
     }
   };
 
   return (
     <div className={styles.container}>
       <div className={styles.info}>
-        <div className={styles.photo}>
-          <Image
-            src="/images/profile.png"
-            width={60}
-            height={60}
-            alt="profile pic"
-          />
+        <div className={styles.avatar} style={{ backgroundColor: roles[0][userRole] }}>
+          <p>{initials}</p>
         </div>
         <p>{userName}</p>
         <p>{userEmail}</p>

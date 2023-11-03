@@ -54,7 +54,7 @@ export default function Home() {
           </div>
           <div className={styles.line}></div>
           <div className={styles.item_data}>
-            <h3>{JSON.stringify(data)}</h3>
+            <h3></h3>
           </div>
         </div>
       </Link>

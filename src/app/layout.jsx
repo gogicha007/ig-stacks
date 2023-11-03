@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Inter } from "next/font/google";
+import { Inter, Noto_Sans_Georgian } from "next/font/google";
 import Logo from "public/images/logo.png";
 import "./globals.css";
 
@@ -11,6 +11,7 @@ import Footer from "@/components/footer/Footer";
 import AuthProvider from "@/components/AuthProvider/AuthProvider";
 
 const inter = Inter({ subsets: ["latin"] });
+const noto = Noto_Sans_Georgian({subsets: ["georgian"]})
 
 export const metadata = {
   title: "IG Stacks",
@@ -20,7 +21,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={noto.className}>
         <AuthProvider>
           <div className="container">
             <div className="header">

@@ -20,3 +20,14 @@ model User {
   createDate DateTime @default(now())
   updateDate DateTime @updatedAt
 }
+
+model Supplier {
+  id      String  @id @default(cuid())
+  name    String
+  tax     Int?
+  address String?
+  email   String?
+  person  String?
+  phone   String?
+  comment String?
+}
